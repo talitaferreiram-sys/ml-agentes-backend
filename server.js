@@ -31,12 +31,11 @@ app.get("/auth/callback", async (req, res) => {
     req.session.mlToken = data.access_token;
     req.session.mlRefresh = data.refresh_token;
     req.session.mlUserId = data.user_id;
-    res.redirect("http://localhost:3002/dashboard");
+    res.redirect(process.env.FRONTEND_URL + "/dashboard");
   } catch (e) {
-    res.redirect("http://localhost:3002/?erro=auth");
+    res.redirect(process.env.FRONTEND_URL + "/?erro=auth");
   }
 });
-
 app.get("/auth/status", (req, res) => {
   res.json({ conectado: !!req.session.mlToken, userId: req.session.mlUserId || null });
 });
