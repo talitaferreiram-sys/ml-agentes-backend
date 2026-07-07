@@ -31,9 +31,9 @@ app.get("/auth/callback", async (req, res) => {
     req.session.mlToken = data.access_token;
     req.session.mlRefresh = data.refresh_token;
     req.session.mlUserId = data.user_id;
-    res.redirect("https://avoid-payday-litter.ngrok-free.dev/dashboard");
+    res.redirect("http://localhost:3002/dashboard");
   } catch (e) {
-    res.redirect("https://avoid-payday-litter.ngrok-free.dev/?erro=auth");
+    res.redirect("http://localhost:3002/?erro=auth");
   }
 });
 
