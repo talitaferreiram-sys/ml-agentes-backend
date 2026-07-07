@@ -8,7 +8,7 @@ const Anthropic = require("@anthropic-ai/sdk");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-app.use(cors({ origin: ["http://localhost:3000", "https://avoid-payday-litter.ngrok-free.dev"], credentials: true }));
+app.use(cors({ origin: ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002", "http://localhost:3003", "https://avoid-payday-litter.ngrok-free.dev"], credentials: true }));
 app.use(express.json({ limit: "10mb" }));
 app.use(session({
   secret: process.env.SESSION_SECRET || "ml-agentes-secret",
